@@ -17,14 +17,12 @@ and your responsibility.
   GBPJPY) plus one faster AUDUSD setup on the 4-hour chart.
 - Uses the RSI indicator (14 days): below 30 = "oversold, buy"; above 70 =
   "overbought, sell". It stays in a position until the opposite extreme appears.
-- Risks a small, fixed slice per trade, sized by each pair's volatility, with a
-  wide disaster stop (12× average daily range) in case something extreme happens.
+- Sizes volume so a one-unit close-to-close volatility move corresponds to the configured target fraction of equity. The disaster stop is 12× that volatility estimate. The configured target is not the maximum loss at the stop; a 12-unit stop can imply a loss many times larger before slippage or gaps. There is no demonstrated aggregate portfolio risk cap.
 - Once a day. No scalping, no news trading, no guessing.
 
 ## The honest numbers
 
-These are **backtest** results (2014–2026, full production simulation with real
-spreads, costs, and daily accounting), not promises:
+These are repository-reported **backtest** results (2014–2026). They have not been independently reproduced in this repository's public test pipeline and are not promises:
 
 - 5-pair portfolio: **+61.8% total / Sharpe 0.94 / worst dip −4.8%**
 - Every change had to pass strict out-of-sample gates before shipping; failed
@@ -48,5 +46,4 @@ spreads, costs, and daily accounting), not promises:
 
 ## License
 
-MIT. Use it, learn from it, share it. If it loses money, that's on the market,
-not on me.
+MIT is stated as the intended licence in the project documentation; verify the repository's root licence file and full source history before relying on redistribution rights. If the repository has no root LICENSE file, the code should be treated as unlicensed until one is committed.
